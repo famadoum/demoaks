@@ -1,24 +1,15 @@
-apiVersion: v1
+apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: hello-world-tetris
+  name: ingress-lb
   annotations:
-    kubernetes.io/tls-acme: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  tls:
-  - hosts:
-    - demoaks.westeurope.cloudapp.azure.com
-    secretName: tls-secret
   rules:
-  - host: demoaks.westeurope.cloudapp.azure.com
+  - host: demoaks.famazon.fi
     http:
       paths:
-      - path: /
-        backend:
-          serviceName: aks-tetris
-          servicePort: 80
       - path: /tetris
         backend:
-          serviceName: ingress-demo
+          serviceName: tetris
           servicePort: 80
