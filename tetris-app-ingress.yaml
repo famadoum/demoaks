@@ -13,10 +13,8 @@ spec:
         backend:
           serviceName: tetris
           servicePort: 80
-  - host: demoaks.westeurope.cloudapp.azure.com
-    http:
-      paths:
-      - path: /tetrisazure
+      - path: /famaonkingi
         backend:
-          serviceName: tetris
+          serviceName: helloworld
           servicePort: 80
+      

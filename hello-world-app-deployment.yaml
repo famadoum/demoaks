@@ -1,0 +1,30 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: helloworld-app
+spec:
+  replicas: 10
+  template:
+    metadata:
+      labels:
+        app: helloworld-app
+    spec:
+      containers:
+      - name: tetris-app
+        image: ehazlett/docker-demo:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: TITLE
+          value: Fama on kingi
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8080
+  selector:
+    app: helloworld-app
