@@ -6,15 +6,18 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: demoaks.famazon.fi
+  - host: demoaks-tetris.famazon.fi
     http:
       paths:
-      - path: /tetris
+      - path: /
         backend:
           serviceName: tetris
           servicePort: 80
-      - path: /famaonkingi
+  - host: demoaks.famazon.fi
+    http:
+      paths:
+      - path: /
         backend:
-          serviceName: helloworld
+          serviceName: helloworld-app
           servicePort: 80
       
